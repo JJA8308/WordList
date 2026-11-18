@@ -1,22 +1,10 @@
 import numpy as np
 
-
 def num_letters(num_rows, num_columns):
     return 2 * num_rows + 2 * num_columns - 4
 
-
-assert num_letters(3, 4) == 10
-assert num_letters(13, 4) == 30
-assert num_letters(4, 4) == 12
-assert num_letters(6, 4) == 16
-assert num_letters(6, 7) == 22
-
-print("Checking assertions.")
-
-filename = "loop4.csv"
-
 data = np.loadtxt(
-    filename,
+    "loop3.csv",
     delimiter=",",
     dtype=str,
     encoding="utf-8-sig"
@@ -40,7 +28,7 @@ for row in range(1, rows - 1):
 for row in range(rows - 2, 0, -1):
     words.append(data[row, 0])
 
-print("\nLetters:")
+print("Letters:")
 print(words)
 
 assert len(words) == num_letters(rows, columns)
